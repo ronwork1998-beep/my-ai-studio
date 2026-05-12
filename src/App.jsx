@@ -17,7 +17,7 @@ const SERVICES = [
     title: "解析提升",
     full: "圖像放大",
     desc: "解決線上AI生圖像素不足問題，使用AI模型為您的作品重建精緻細節，方便印刷輸出",
-    img: "/img/06.png",
+    img: "./img/06.png",
   },
   {
     id: 2,
