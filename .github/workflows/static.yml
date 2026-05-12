@@ -1,0 +1,23 @@
+name: Deploy Vite Site
+on:
+  push:
+    branches: ["main"] # 當 main 分支有更新時觸發
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+      - run: npm install
+      - run: npm run build      # 執行打包
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: './dist'        # 指定上傳打包後的 dist 資料夾
+      - uses: actions/deploy-pages@v4
