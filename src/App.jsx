@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectFade, Thumbs, Autoplay } from "swiper/modules";
-import { Layers, Printer, Wand2 } from "lucide-react"; // 引入圖標
+import { Layers, Printer, Wand2, Mail } from "lucide-react"; // 引入圖標
 // 1. 引入 Formspree 所需組件
 import { useForm, ValidationError } from "@formspree/react";
 
@@ -87,6 +87,15 @@ export default function App() {
           >
             馬上聯絡
           </a>
+
+          <p className="pt-2 text-slate-400 leading-7">
+            or<br/>
+            <Mail
+              className="text-[#d4af37] inline-block align-text-bottom mr-2"
+              size={18}
+            />
+            ronwork1998@gmail.com
+          </p>
         </motion.div>
       </section>
 
@@ -246,9 +255,10 @@ export default function App() {
           ) : (
             // 表單本體
             <>
-              <h2 className="text-2xl text-center mb-10 tracking-widest uppercase font-light">
+              <h2 className="text-2xl text-center mb-2 tracking-widest uppercase font-light">
                 諮詢表格
               </h2>
+
               <form className="space-y-8" onSubmit={handleSubmit}>
                 <div>
                   <input
@@ -306,6 +316,7 @@ export default function App() {
             </>
           )}
         </div>
+       
       </section>
 
       {/* 4. 聯絡區 */}
