@@ -1,7 +1,17 @@
-# ... 前面是觸發條件與權限設定 ...
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
-  build:
+  build_and_deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -17,18 +27,16 @@ jobs:
         run: npm install
 
       - name: Build
-        run: npm run build  # 這裡會產出 dist 資料夾
+        run: npm run build
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # 重點！確保這裡指向的是編譯後的資料夾
-          path: ./dist
+          path: ./dist # 確保 Vite 打包出來的是這個資料夾
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
