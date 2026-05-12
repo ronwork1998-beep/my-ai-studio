@@ -24,28 +24,28 @@ const SERVICES = [
     title: "圖層拆解",
     full: "圖像分層",
     desc: "精準主體去背或背景自動補完，使用AI或人工編輯圖片拆出指定區塊，讓後期使用擁有最高彈性",
-    img: "${import.meta.env.BASE_URL}img/07.png",
+    img: "./img/07.png",
   },
   {
     id: 3,
     title: "內容修復",
     full: "圖像文字修復",
     desc: "對浮水印、文字扭曲、五官瑕疵等自然區域進行手工修補移除，抹除AI生成的粗糙感",
-    img: "/img/08.png",
+    img: "./img/08.png",
   },
   {
     id: 4,
     title: "PSD轉換",
     full: "轉換PSD檔",
     desc: "將您提供AI產出的圖或一般圖片轉存PSD格式檔案，以便後續編輯或印刷",
-    img: "/img/03.png",
+    img: "./img/03.png",
   },
   {
     id: 5,
     title: "圖像生成",
     full: "製作指定圖像",
     desc: "依照您的需求客製化，使用AI模型生成指定主題或風格的圖像，並進行後續修正優化",
-    img: "/img/04.png",
+    img: "./img/04.png",
   },
 ];
 
@@ -111,7 +111,7 @@ export default function App() {
             </div>
             <div className="flex-1 rounded-lg overflow-hidden border border-slate-100 shadow-xl">
               <img
-                src="/img/02.png"
+                src="./img/02.png"
                 className="w-full h-80 object-cover"
                 alt="Fix"
               />
@@ -129,7 +129,7 @@ export default function App() {
             </div>
             <div className="flex-1 rounded-lg overflow-hidden border border-slate-100 shadow-xl">
               <img
-                src="/img/09.png"
+                src="./img/09.png"
                 className="w-full h-80 object-cover"
                 alt="PSD"
               />
@@ -147,7 +147,7 @@ export default function App() {
             </div>
             <div className="flex-1 rounded-lg overflow-hidden border border-slate-100 shadow-xl">
               <img
-                src="/img/01.png"
+                src="./img/01.png"
                 className="w-full h-80 object-cover"
                 alt="Print"
               />
