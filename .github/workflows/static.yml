@@ -1,23 +1,34 @@
-name: Deploy Vite Site
-on:
-  push:
-    branches: ["main"] # 當 main 分支有更新時觸發
-permissions:
-  contents: read
-  pages: write
-  id-token: write
+# ... 前面是觸發條件與權限設定 ...
+
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: 'npm'
-      - run: npm install
-      - run: npm run build      # 執行打包
-      - uses: actions/upload-pages-artifact@v3
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build
+        run: npm run build  # 這裡會產出 dist 資料夾
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist'        # 指定上傳打包後的 dist 資料夾
-      - uses: actions/deploy-pages@v4
+          # 重點！確保這裡指向的是編譯後的資料夾
+          path: ./dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
