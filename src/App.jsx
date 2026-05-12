@@ -24,7 +24,7 @@ const SERVICES = [
     title: "圖層拆解",
     full: "圖像分層",
     desc: "精準主體去背或背景自動補完，使用AI或人工編輯圖片拆出指定區塊，讓後期使用擁有最高彈性",
-    img: "/img/07.png",
+    img: "${import.meta.env.BASE_URL}img/07.png",
   },
   {
     id: 3,
